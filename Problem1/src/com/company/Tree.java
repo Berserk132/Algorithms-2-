@@ -16,6 +16,26 @@ class Node<T>
 
 public class Tree {
     Node root;
+    
+    boolean bfs() {
+    	if(root.left.data==root.right.data) {
+    		return equal(root.left,root.right);
+    	}
+    	return false;
+    }
+    
+    boolean equal(Node left , Node right) {
+    	if(left == null && right == null)
+    		return true;
+    	
+    	if(left==null || right==null || (left.data != right.data)) 
+    		return false;
+    	
+    	boolean result = equal(left.left , right.right);
+    	result &= equal(left.right , right.left);
+    	
+    	return result;
+    }
 
     String leftDFS(Node n){
         String st = "",sum = "";

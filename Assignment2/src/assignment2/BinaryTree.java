@@ -13,42 +13,13 @@ package assignment2;
 
 import java.util.ArrayList;
 import java.util.Collections;
-import javafx.print.Collation;
-import jdk.internal.org.objectweb.asm.tree.analysis.Value;
 
 public class BinaryTree {
 
     Tree root;
     ArrayList<Integer> encoded = new ArrayList<>();
 
-    // ...
-
-
-    /*private Tree addRecursive(Tree current, int value) {
-
-        if (current == null) {
-            return new Tree(value);
-        }
-
-        if (value < current.value) {
-
-            current.left = addRecursive(current.left, value);
-        } else if (value > current.value) {
-
-            current.right = addRecursive(current.right, value);
-        } else {
-
-            // value already exists
-            return current;
-        }
-
-        return current;
-    }
-
-    public void add(int value) {
-
-        root = addRecursive(root, value);
-    }*/
+    
     
     Tree newNode(int data)  
     {  
@@ -56,25 +27,7 @@ public class BinaryTree {
         return(Node);  
     } 
 
-    /*private BinaryTree createBinaryTree() {
-        BinaryTree bt = new BinaryTree();
-
-        bt.add(2);
-        bt.add(1);
-        bt.add(3);
-        bt.add(4);
-        bt.add(5);
-        bt.add(7);
-        bt.add(9);
-        
-        bt.root.value = -1;
-        bt.root.left.value = 5;
-        bt.root.right.value = 7;
-        bt.root.right.right.value = 1;
-
-        return bt;
-    }*/
-    
+  
     int height(Tree node)  
     {  
         if (node == null)  
@@ -129,9 +82,10 @@ public class BinaryTree {
          
         String num = "";
         for (int i = 0; i < index; i++){
-            
+            System.out.print(path[i]+" ");
             num += path[i];
         }
+        System.out.println();
         encoded.add(Integer.parseInt(num));
     }
     
@@ -194,7 +148,7 @@ public class BinaryTree {
         
         res = tree.printLevelOrder();
          
-        System.out.println(" ");
+        System.out.println(" \n");
         for (int i = 0; i < res.size(); i++){
             
             System.out.println(res.get(i));
